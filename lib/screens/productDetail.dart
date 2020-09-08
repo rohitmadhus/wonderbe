@@ -1,4 +1,8 @@
+import 'package:Wonderbe/helpers/pagenavigation.dart';
+import 'package:Wonderbe/screens/home.dart';
 import 'package:Wonderbe/styles/colorscheme.dart';
+import 'package:Wonderbe/widgets/gridviewwidget.dart';
+import 'package:Wonderbe/widgets/headingtext.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
@@ -25,7 +29,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         appBar: AppBar(
             elevation: 1,
             backgroundColor: primary,
-            title: Text("WONDERBE"),
+            title: GestureDetector(
+                onTap: () => changeScreen(context, new HomeScreen()),
+                child: Text("WONDERBE")),
             actions: <Widget>[
               IconButton(
                   icon: Icon(Icons.shopping_cart, color: iconColor),
@@ -102,7 +108,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               children: <Widget>[
                 Expanded(
                   child: MaterialButton(
-                      onPressed: null,
+                      onPressed: () {},
+                      color: Colors.red,
                       textColor: Colors.white,
                       elevation: 0.2,
                       child: Text("Buy Now")),
@@ -115,7 +122,26 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             ListTile(
               title: Text("Product Details"),
               subtitle: Text("jkabckjabsckjdsbck"),
-            )
+            ),
+            Row(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("Product Name"),
+                )
+              ],
+            ),
+            Row(
+              children: <Widget>[Text("Brand Name")],
+            ),
+            Row(
+              children: <Widget>[Text("")],
+            ),
+            Padding(
+                padding: const EdgeInsets.all(8),
+                child: HeadingTextWidget(
+                    text: "Similar Products", color: Colors.black, size: 20)),
+            Container(height: 320, child: GridWidget())
           ],
         ));
   }

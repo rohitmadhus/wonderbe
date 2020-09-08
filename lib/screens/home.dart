@@ -1,10 +1,11 @@
+import 'package:Wonderbe/helpers/pagenavigation.dart';
+import 'package:Wonderbe/screens/cart.dart';
 import 'package:Wonderbe/styles/colorscheme.dart';
 import 'package:Wonderbe/widgets/headingtext.dart';
-import 'package:Wonderbe/widgets/homescreencarouselwidget.dart';
-import 'package:Wonderbe/widgets/homescreengridviewwidget.dart';
+import 'package:Wonderbe/widgets/carouselInHome.dart';
+import 'package:Wonderbe/widgets/gridviewwidget.dart';
 import 'package:Wonderbe/widgets/horizonatllistview.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_pro/carousel_pro.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -22,7 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
           actions: <Widget>[
             IconButton(
                 icon: Icon(Icons.shopping_cart, color: iconColor),
-                onPressed: null),
+                onPressed: () {
+                  changeScreen(context, CartScreen());
+                }),
             IconButton(
                 icon: Icon(Icons.notifications, color: iconColor),
                 onPressed: null)
@@ -70,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(8),
               child: HeadingTextWidget(
                   text: "New Arrivals", color: Colors.black, size: 20)),
-          Container(height: 320, child: HomeScreenGridWidget())
+          Container(height: 320, child: GridWidget())
         ],
       ),
     );

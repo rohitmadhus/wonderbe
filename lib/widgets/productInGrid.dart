@@ -19,7 +19,7 @@ class ProductWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Hero(
-          tag: productName,
+          tag: new Text("hero"),
           child: Material(
             child: InkWell(
                 onTap: () {

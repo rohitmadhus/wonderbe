@@ -1,8 +1,8 @@
 import 'package:Wonderbe/helpers/pagenavigation.dart';
 import 'package:Wonderbe/screens/cart.dart';
 import 'package:Wonderbe/styles/colorscheme.dart';
-import 'package:Wonderbe/widgets/headingtext.dart';
 import 'package:Wonderbe/widgets/carouselInHome.dart';
+import 'package:Wonderbe/widgets/headingtext.dart';
 import 'package:Wonderbe/widgets/gridviewwidget.dart';
 import 'package:Wonderbe/widgets/horizonatllistview.dart';
 import 'package:flutter/material.dart';
@@ -73,7 +73,8 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.all(8),
               child: HeadingTextWidget(
                   text: "New Arrivals", color: Colors.black, size: 20)),
-          Container(height: 320, child: GridWidget())
+          Container(height: 200, child: GridWidget()),
+          //Flexible(child: null)
         ],
       ),
     );

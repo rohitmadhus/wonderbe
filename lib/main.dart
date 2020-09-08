@@ -1,8 +1,14 @@
+import 'package:Wonderbe/providers/app.dart';
+import 'package:Wonderbe/providers/user.dart';
 import 'package:Wonderbe/screens/home.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider.value(value: AppProvider()),
+    ChangeNotifierProvider.value(value: UserProvider()),
+  ], child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {

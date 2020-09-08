@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "871107388317",
+    "firebase_url": "https://wonderbe-3fd47.firebaseio.com",
+    "project_id": "wonderbe-3fd47",
+    "storage_bucket": "wonderbe-3fd47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871107388317:android:79cd47d410672eb3cbc574",
+        "android_client_info": {
+          "package_name": "com.ecommerce.Wonderbe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871107388317-ajpldvmrchkic71mglar9gdf1nel91ei.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ecommerce.Wonderbe",
+            "certificate_hash": "d0dee6468167c7e733c75f7cc413e21796e6dd9e"
+          }
+        },
+        {
+          "client_id": "871107388317-68eo69sc2q0l4bj3n0m0cpbouhcjfr55.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOapHQ83MJ_GNeWjOhveR9SNAIIPro6uw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871107388317-68eo69sc2q0l4bj3n0m0cpbouhcjfr55.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

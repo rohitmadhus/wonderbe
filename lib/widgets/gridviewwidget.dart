@@ -71,18 +71,21 @@ class _GridWidgetState extends State<GridWidget> {
   ];
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-        physics: ScrollPhysics(),
-        itemCount: prodeuctList.length,
-        gridDelegate:
-            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-        itemBuilder: (BuildContext context, int index) {
-          return ProductWidget(
-            productImage: prodeuctList[index]["image"],
-            productName: prodeuctList[index]["name"],
-            productOldPrice: prodeuctList[index]["oldPrice"],
-            productPrice: prodeuctList[index]["price"],
-          );
-        });
+    return Padding(
+      padding: const EdgeInsets.only(left: 15, right: 15),
+      child: GridView.builder(
+          physics: ScrollPhysics(),
+          itemCount: prodeuctList.length,
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+          itemBuilder: (BuildContext context, int index) {
+            return ProductWidget(
+              productImage: prodeuctList[index]["image"],
+              productName: prodeuctList[index]["name"],
+              productOldPrice: prodeuctList[index]["oldPrice"],
+              productPrice: prodeuctList[index]["price"],
+            );
+          }),
+    );
   }
 }

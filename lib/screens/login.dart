@@ -1,3 +1,8 @@
+import 'package:Wonderbe/helpers/pagenavigation.dart';
+import 'package:Wonderbe/helpers/signInWithgoogle.dart';
+import 'package:Wonderbe/screens/home.dart';
+import 'package:Wonderbe/widgets/googleSignInButton.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -9,19 +14,34 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  final GoogleSignIn googleSignIn = new GoogleSignIn();
-  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-  SharedPreferences sharedPreferences;
-  bool loading = false;
-  bool isloggedin = false;
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Center(
+              child: OutlineButton(
+            onPressed: () {
+              signInWithGoogle().then((result) {
+                if (result != null) {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return HomeScreen();
+                      },
+                    ),
+                  );
+                }
+              });
+            },
+            child: GooglrSignInButton(),
+          )),
+          Visibility(
+            visible: true,
+            child: CircularProgressIndicator(),
+          )
+        ],
+      ),
+    );
   }
 }

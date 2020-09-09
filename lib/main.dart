@@ -1,13 +1,21 @@
 import 'package:Wonderbe/providers/app.dart';
+import 'package:Wonderbe/providers/category.dart';
+import 'package:Wonderbe/providers/slider.dart';
 import 'package:Wonderbe/providers/user.dart';
 import 'package:Wonderbe/screens/home.dart';
+import 'package:Wonderbe/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider.value(value: AppProvider()),
     ChangeNotifierProvider.value(value: UserProvider()),
+    ChangeNotifierProvider.value(value: SliderProvider.initialize()),
+    ChangeNotifierProvider.value(value: CategoryProvider.initialize()),
   ], child: MyApp()));
 }
 

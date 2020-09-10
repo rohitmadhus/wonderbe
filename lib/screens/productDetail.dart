@@ -1,4 +1,5 @@
 import 'package:Wonderbe/helpers/pagenavigation.dart';
+import 'package:Wonderbe/models/product.dart';
 import 'package:Wonderbe/screens/home.dart';
 import 'package:Wonderbe/styles/colorscheme.dart';
 import 'package:Wonderbe/widgets/gridviewwidget.dart';
@@ -6,18 +7,10 @@ import 'package:Wonderbe/widgets/headingtext.dart';
 import 'package:flutter/material.dart';
 
 class ProductDetailScreen extends StatefulWidget {
-  final String productName;
-  final double productPrice;
-  final double productOldPrice;
-  final String image;
+  final ProductModel product;
 
-  const ProductDetailScreen(
-      {Key key,
-      this.productName,
-      this.productPrice,
-      this.productOldPrice,
-      this.image})
-      : super(key: key);
+  const ProductDetailScreen({Key key, this.product}) : super(key: key);
+
   @override
   _ProductDetailScreenState createState() => _ProductDetailScreenState();
 }
@@ -47,15 +40,16 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               color: Colors.black,
               child: GridTile(
                 child: Container(
-                    color: Colors.white, child: Image.asset(widget.image)),
+                    color: Colors.white,
+                    child: Image.network(widget.product.image)),
                 footer: Container(
                   color: Colors.white,
                   child: ListTile(
-                    leading: Text(widget.productName),
+                    leading: Text(widget.product.name),
                     title: Row(
                       children: <Widget>[
-                        Expanded(child: Text("${widget.productPrice}")),
-                        Expanded(child: Text("${widget.productOldPrice}"))
+                        Expanded(child: Text("${widget.product.price}")),
+                        Expanded(child: Text("( ${widget.product.offer}% )"))
                       ],
                     ),
                   ),

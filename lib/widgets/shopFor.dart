@@ -1,3 +1,5 @@
+import 'package:Wonderbe/helpers/pagenavigation.dart';
+import 'package:Wonderbe/screens/detailScreen.dart';
 import 'package:Wonderbe/widgets/loading.dart';
 import 'package:flutter/material.dart';
 
@@ -28,35 +30,38 @@ class ShopForWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: shopFor
                 .map(
-                  (e) => Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 10),
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          width: 80,
-                          height: 80,
-                          child: ClipRRect(
-                              borderRadius: BorderRadius.circular(45),
-                              child: Stack(
-                                children: <Widget>[
-                                  Positioned.fill(
-                                      child: Align(
-                                    alignment: Alignment.center,
-                                    child: Loading(),
-                                  )),
-                                  Positioned.fill(
-                                      child: Image.asset(e["image"],
-                                          fit: BoxFit.cover))
-                                ],
-                              )),
-                        ),
-                        Container(
-                          width: 80,
-                          height: 30,
-                          alignment: Alignment.center,
-                          child: Text(e["for"]),
-                        ),
-                      ],
+                  (e) => GestureDetector(
+                    onTap: () => changeScreen(context, DetailScreen()),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 10, right: 10),
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            width: 80,
+                            height: 80,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(45),
+                                child: Stack(
+                                  children: <Widget>[
+                                    Positioned.fill(
+                                        child: Align(
+                                      alignment: Alignment.center,
+                                      child: Loading(),
+                                    )),
+                                    Positioned.fill(
+                                        child: Image.asset(e["image"],
+                                            fit: BoxFit.cover))
+                                  ],
+                                )),
+                          ),
+                          Container(
+                            width: 80,
+                            height: 30,
+                            alignment: Alignment.center,
+                            child: Text(e["for"]),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 )

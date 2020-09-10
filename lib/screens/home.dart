@@ -3,8 +3,6 @@ import 'package:Wonderbe/widgets/brandsWidget.dart';
 import 'package:Wonderbe/widgets/budgetBuy.dart';
 import 'package:Wonderbe/widgets/carouselInHome.dart';
 import 'package:Wonderbe/widgets/category.dart';
-import 'package:Wonderbe/widgets/headingtext.dart';
-import 'package:Wonderbe/widgets/gridviewwidget.dart';
 import 'package:Wonderbe/widgets/newarrivalwidget.dart';
 import 'package:Wonderbe/widgets/offerWidget.dart';
 import 'package:Wonderbe/widgets/shopFor.dart';
@@ -94,18 +92,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       })),
             ),
 
-            Padding(
-                padding: const EdgeInsets.all(8),
-                child: HeadingTextWidget(
-                    text: "New Arrivals", color: Colors.black, size: 20)),
-            //Container(height: 330, child: GridWidget()),
+//Container(height: 330, child: GridWidget()),
+            TitleHomePage(text: "New Arrivals"),
 
             NewArrivalWidget(newArrival: categories.categories),
-            BudgetBuyWidget(budgetBuy: categories.categories),
-            TitleHomePage(
-              text: "OFFERS",
-            ),
+            BudgetBuyWidget(),
+            TitleHomePage(text: "Brands"),
             BrandsWidget(brands: categories.categories),
+            TitleHomePage(text: "Offers"),
             OfferWidget(offers: categories.categories),
             TrendingWidget(trending: categories.categories),
 
@@ -114,6 +108,52 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 100,
             )
           ],
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: Container(
+            alignment: Alignment.center,
+            height: 50,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                IconButton(
+                    icon: Icon(
+                      Icons.home,
+                      color: Colors.black,
+                      size: 25,
+                    ),
+                    onPressed: null),
+                IconButton(
+                    icon: Icon(
+                      Icons.shopping_cart,
+                      size: 25,
+                      color: Colors.blue,
+                    ),
+                    onPressed: null),
+                IconButton(
+                    icon: Icon(
+                      Icons.mail_outline,
+                      color: Colors.green,
+                      size: 25,
+                    ),
+                    onPressed: null),
+                IconButton(
+                    icon: Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                      size: 25,
+                    ),
+                    onPressed: null),
+                IconButton(
+                    icon: Icon(
+                      Icons.person,
+                      color: Colors.black,
+                      size: 25,
+                    ),
+                    onPressed: null)
+              ],
+            ),
+          ),
         ),
       ),
     );

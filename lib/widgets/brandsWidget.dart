@@ -28,7 +28,7 @@ class BrandsWidget extends StatelessWidget {
                           width: 90,
                           height: 90,
                           child: ClipRRect(
-                              borderRadius: BorderRadius.circular(45),
+                              borderRadius: BorderRadius.circular(5),
                               child: Stack(
                                 children: <Widget>[
                                   Positioned.fill(
@@ -50,7 +50,7 @@ class BrandsWidget extends StatelessWidget {
                           width: 90,
                           height: 90,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(45),
+                              borderRadius: BorderRadius.circular(5),
                               gradient: LinearGradient(
                                 begin: Alignment.bottomCenter,
                                 end: Alignment.topCenter,

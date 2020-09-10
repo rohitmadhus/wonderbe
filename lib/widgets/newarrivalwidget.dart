@@ -41,9 +41,7 @@ class NewArrivalWidget extends StatelessWidget {
                                       image: newArrival[0].image,
                                       fit: BoxFit.cover))
                             ],
-                          )
-                          //Image.network(categoryModel.image,fit: BoxFit.cover,)
-                          ),
+                          )),
                     ),
                     Container(
                       width: width / 2.2,
@@ -69,7 +67,7 @@ class NewArrivalWidget extends StatelessWidget {
                     ),
                     Positioned.fill(
                         child: Align(
-                            alignment: Alignment.center,
+                            alignment: Alignment.topCenter,
                             child: HeadingTextWidget(
                               text: newArrival[0].name,
                               color: Colors.white,

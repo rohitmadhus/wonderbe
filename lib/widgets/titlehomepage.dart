@@ -9,6 +9,6 @@ class TitleHomePage extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(15, 8, 8, 8),
         child: Text(text,
             textAlign: TextAlign.left,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500)));
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400)));
   }
 }

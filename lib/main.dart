@@ -1,5 +1,6 @@
 import 'package:Wonderbe/providers/app.dart';
 import 'package:Wonderbe/providers/category.dart';
+import 'package:Wonderbe/providers/product.dart';
 import 'package:Wonderbe/providers/slider.dart';
 import 'package:Wonderbe/providers/user.dart';
 import 'package:Wonderbe/screens/home.dart';
@@ -16,6 +17,7 @@ void main() async {
     ChangeNotifierProvider.value(value: UserProvider()),
     ChangeNotifierProvider.value(value: SliderProvider.initialize()),
     ChangeNotifierProvider.value(value: CategoryProvider.initialize()),
+    ChangeNotifierProvider.value(value: ProductProvider.initialize()),
   ], child: MyApp()));
 }
 

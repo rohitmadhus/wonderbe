@@ -4,9 +4,9 @@ class BudgetBuyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List budgetBuy = [
-      {"range": "₹ 500", "color": Colors.blueAccent},
-      {"range": "₹ 700", "color": Colors.orange},
-      {"range": "₹ 1000", "color": Colors.lightGreenAccent},
+      {"range": "₹ 500", "color": Colors.orange[800]},
+      {"range": "₹ 700", "color": Colors.yellow[700]},
+      {"range": "₹ 1000", "color": Colors.green[400]},
     ];
     double width = MediaQuery.of(context).size.width;
     return Padding(
@@ -37,12 +37,16 @@ class BudgetBuyWidget extends StatelessWidget {
                               Text(
                                 "UNDER",
                                 style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w600),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white),
                               ),
                               Text(
                                 "____",
                                 style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w900),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w900,
+                                    color: Colors.white),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 5.0),
@@ -50,7 +54,8 @@ class BudgetBuyWidget extends StatelessWidget {
                                   e["range"],
                                   style: TextStyle(
                                       fontSize: 16,
-                                      fontWeight: FontWeight.w600),
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white),
                                 ),
                               ),
                             ],

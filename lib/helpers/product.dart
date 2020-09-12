@@ -1,4 +1,3 @@
-import 'package:Wonderbe/models/category.dart';
 import 'package:Wonderbe/models/product.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

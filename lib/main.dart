@@ -1,16 +1,23 @@
+import 'package:Wonderbe/helpers/conectivityCheck.dart';
 import 'package:Wonderbe/providers/app.dart';
 import 'package:Wonderbe/providers/category.dart';
+
 import 'package:Wonderbe/providers/product.dart';
 import 'package:Wonderbe/providers/slider.dart';
 import 'package:Wonderbe/providers/user.dart';
 import 'package:Wonderbe/screens/home.dart';
-import 'package:Wonderbe/screens/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  ConnectionStatusSingleton connectionStatus =
+      ConnectionStatusSingleton.getInstance();
+  connectionStatus.initialize();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await Firebase.initializeApp();
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider.value(value: AppProvider()),

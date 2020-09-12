@@ -1,7 +1,9 @@
 import 'package:Wonderbe/helpers/pagenavigation.dart';
 import 'package:Wonderbe/models/product.dart';
 import 'package:Wonderbe/screens/productDetail.dart';
+import 'package:Wonderbe/widgets/loading.dart';
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class ProductWidget extends StatelessWidget {
   final ProductModel product;
@@ -105,7 +107,20 @@ class ProductWidget extends StatelessWidget {
                       //   ),
                       // ),
                     ),
-                    child: Image.network(product.image, fit: BoxFit.cover))),
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned.fill(
+                            child: Align(
+                          alignment: Alignment.center,
+                          child: Loading(),
+                        )),
+                        Positioned.fill(
+                            child: FadeInImage.memoryNetwork(
+                                placeholder: kTransparentImage,
+                                image: product.image,
+                                fit: BoxFit.cover))
+                      ],
+                    ))),
           )),
     );
   }

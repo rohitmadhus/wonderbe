@@ -8,7 +8,15 @@ class Loading extends StatelessWidget {
       child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CircularProgressIndicator(),
+            Container(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.white,
+                strokeWidth: 3,
+                valueColor: new AlwaysStoppedAnimation<Color>(Colors.black12),
+              ),
+            ),
           ]),
     );
   }

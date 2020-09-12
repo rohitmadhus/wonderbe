@@ -1,7 +1,9 @@
 import 'package:Wonderbe/helpers/pagenavigation.dart';
+import 'package:Wonderbe/providers/product.dart';
 import 'package:Wonderbe/screens/detailScreen.dart';
 import 'package:Wonderbe/widgets/loading.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ShopForWidget extends StatelessWidget {
   @override
@@ -9,7 +11,7 @@ class ShopForWidget extends StatelessWidget {
     List shopFor = [
       {
         "for": "All",
-        "image": "assets/images/shopForGirl.jpeg",
+        "image": "assets/images/shopForAll.jpeg",
       },
       {
         "for": "Boys",
@@ -21,6 +23,7 @@ class ShopForWidget extends StatelessWidget {
       },
     ];
     double width = MediaQuery.of(context).size.width;
+    final products = Provider.of<ProductProvider>(context);
     return Padding(
       padding: const EdgeInsets.only(top: 6, bottom: 6, left: 15, right: 15),
       child: Container(
@@ -31,7 +34,11 @@ class ShopForWidget extends StatelessWidget {
             children: shopFor
                 .map(
                   (e) => GestureDetector(
-                    onTap: () => changeScreen(context, DetailScreen()),
+                    onTap: () async {
+                      await products.loadProductwithShopFor(
+                          shopFor: e["for"].toString().trim());
+                      changeScreen(context, DetailScreen());
+                    },
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10, right: 10),
                       child: Column(
@@ -58,7 +65,13 @@ class ShopForWidget extends StatelessWidget {
                             width: 80,
                             height: 30,
                             alignment: Alignment.center,
-                            child: Text(e["for"]),
+                            child: Text(
+                              e["for"],
+                              style: TextStyle(
+                                  color: Colors.pink,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w800),
+                            ),
                           ),
                         ],
                       ),

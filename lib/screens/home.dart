@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:Wonderbe/helpers/pagenavigation.dart';
 import 'package:Wonderbe/providers/category.dart';
 import 'package:Wonderbe/helpers/conectivityCheck.dart';
+import 'package:Wonderbe/providers/product.dart';
 import 'package:Wonderbe/screens/contactScreen.dart';
+import 'package:Wonderbe/screens/detailScreen.dart';
 import 'package:Wonderbe/widgets/brandsWidget.dart';
 import 'package:Wonderbe/widgets/budgetBuy.dart';
 import 'package:Wonderbe/widgets/carouselInHome.dart';
@@ -43,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final categories = Provider.of<CategoryProvider>(context);
+    final products = Provider.of<ProductProvider>(context);
 
     return SafeArea(
       child: Scaffold(
@@ -114,7 +117,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ),
-
                   Container(
                       decoration: BoxDecoration(
                           image: DecorationImage(
@@ -142,7 +144,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                 itemCount: categories.categories.length,
                                 itemBuilder: (context, index) {
                                   return GestureDetector(
-                                    onTap: () async {},
+                                    onTap: () async {
+                                      await products.loadProductsByCategory(
+                                          category: categories
+                                              .categories[index].name
+                                              .toString()
+                                              .trim());
+                                      changeScreen(context, DetailScreen());
+                                    },
                                     child: CategoryWidget(
                                         categoryModel:
                                             categories.categories[index]),
